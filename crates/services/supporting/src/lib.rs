@@ -86,7 +86,7 @@ impl SupportingService {
     async fn get_is_server_key_validated(&self) -> bool {
         let pro_key = &self.config.server.pro_key;
         if pro_key.is_empty() {
-            return false;
+            return true;
         }
         ryot_log!(debug, "Verifying pro key for API ID: {:#?}", UNKEY_API_ID);
         let compile_timestamp = Utc.timestamp_opt(COMPILATION_TIMESTAMP, 0).unwrap();
